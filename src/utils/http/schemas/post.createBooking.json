@@ -1,0 +1,44 @@
+{
+    "title": "Create booking schema",
+    "type": "object",
+    "required": [
+        "bookingid",
+        "booking"
+    ],
+    "properties": {
+        "bookingid": {
+            "type": "number"
+        },
+        "booking": {
+            "type": "object",
+            "required": [
+                "firstname",
+                "lastname",
+                "totalprice",
+                "depositpaid",
+                "bookingdates",
+                "additionalneeds"
+            ],
+            "properties": {
+                "firstname": {
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "totalprice": {
+                    "type": "number"
+                },
+                "depositpaid": {
+                    "type": "boolean"
+                },
+                "bookingdates": {
+                    "type": "object"
+                },
+                "additionalneeds": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
