@@ -37,7 +37,7 @@ class RestfulBookerService extends HTTP {
     }
 
     public async getBookingById(bookingId: string): Promise<AxiosResponse<OneBooking & AxiosResponseError>> {
-        return this.get(`${API_PATH.EXACT_BOOKING(bookingId)}`, RestfulBookerService.setAxiosConfig(null, { headers: { "Accept": "application/json" } }));
+        return this.get(`${API_PATH.ONE_BOOKING_BY_ID(bookingId)}`, RestfulBookerService.setAxiosConfig(null, { headers: { "Accept": "application/json" } }));
     }
 
     public async createBooking(data): Promise<AxiosResponse<CreateBooking & AxiosResponseError>> {
@@ -45,15 +45,15 @@ class RestfulBookerService extends HTTP {
     }
 
     public async updateBooking(bookingId: string, data = {}, token: string) {
-        return this.put(`${API_PATH.EXACT_BOOKING(bookingId)}`, data, RestfulBookerService.setAxiosConfig(token, { headers: { "Accept": "application/json" } }));
+        return this.put(`${API_PATH.ONE_BOOKING_BY_ID(bookingId)}`, data, RestfulBookerService.setAxiosConfig(token, { headers: { "Accept": "application/json" } }));
     }
 
     public async partiallyUpdateBooking(bookingId: string, data = {}, token: string) {
-        return this.patch(`${API_PATH.EXACT_BOOKING(bookingId)}`, data, RestfulBookerService.setAxiosConfig(token, { headers: { "Accept": "application/json" } }));
+        return this.patch(`${API_PATH.ONE_BOOKING_BY_ID(bookingId)}`, data, RestfulBookerService.setAxiosConfig(token, { headers: { "Accept": "application/json" } }));
     }
 
     public async deleteBookingById(bookingId: string, token: string) {
-        return this.delete(`${API_PATH.EXACT_BOOKING(bookingId)}`, RestfulBookerService.setAxiosConfig(token));
+        return this.delete(`${API_PATH.ONE_BOOKING_BY_ID(bookingId)}`, RestfulBookerService.setAxiosConfig(token));
     }
 }
 
