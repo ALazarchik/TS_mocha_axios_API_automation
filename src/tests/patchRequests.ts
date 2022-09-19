@@ -26,7 +26,7 @@ describe("PATCH requests: ", () => {
     });
 
     it("partially update existing booking", async () => {
-        const schemaPath = "./src/utils/http/schemas/get.bookingById.json";
+        const schemaPath = "./src/utils/schemas/get.bookingById.json";
 
         const newDataForBooking = { "firstname" : "Lionel", "lastname" : "Messi" };
         const updatedBooking = _.cloneDeep(initialBookingData);

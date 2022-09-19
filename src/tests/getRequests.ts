@@ -13,7 +13,7 @@ describe("GET requests: ", () => {
     });
 
     it("get all booking ids", async () => {
-        const schemaPath = "./src/utils/http/schemas/get.allBookingIds.schema.json";
+        const schemaPath = "./src/utils/schemas/get.allBookingIds.schema.json";
         const response = await restfulBookerService.getAllBookingsIds();
         expect(response.status).to.be.equal(200, ASSERTION_ERRORS.RESPONSE_STATUS(200));
         const responseData = response.data;
@@ -21,7 +21,7 @@ describe("GET requests: ", () => {
     });
 
     it("get booking by id", async () => {
-        const schemaPath = "./src/utils/http/schemas/get.bookingById.json";
+        const schemaPath = "./src/utils/schemas/get.bookingById.json";
         const allBookingsResponse = await restfulBookerService.getAllBookingsIds();
         expect(allBookingsResponse.status).to.be.equal(200, ASSERTION_ERRORS.RESPONSE_STATUS(200));
         const response = await restfulBookerService.getBookingById(allBookingsResponse.data[0].bookingid);

@@ -38,7 +38,7 @@ describe("PUT requests: ", () => {
     });
 
     it("update existing booking", async () => {
-        const schemaPath = "./src/utils/http/schemas/get.bookingById.json";
+        const schemaPath = "./src/utils/schemas/get.bookingById.json";
 
         const updateResponse = (await restfulBookerService.updateBooking(bookingId, updatedBookingData, authToken)).data;
         await checkSchema(schemaPath, updateResponse);

@@ -16,7 +16,7 @@ describe("POST requests: ", () => {
     });
 
     it("create new booking", async () => {
-        const schemaPath = "./src/utils/http/schemas/post.createBooking.json";
+        const schemaPath = "./src/utils/schemas/post.createBooking.json";
 
         const response = await restfulBookerService.createBooking(initialBookingData);
         expect(response.status).to.be.equal(200, ASSERTION_ERRORS.RESPONSE_STATUS(200));

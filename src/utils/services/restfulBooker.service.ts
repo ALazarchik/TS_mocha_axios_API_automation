@@ -4,7 +4,6 @@ import _ from "lodash";
 import { AxiosResponse } from "axios";
 import { AllBookingIds, AxiosResponseError, CreateBooking, OneBooking, Token } from "../http/interfaces";
 import { API_PATH } from "../../data/endpoints";
-import { AUTH_CREDENTIALS } from "../../data/constants";
 
 class RestfulBookerService extends HTTP {
     constructor() {
@@ -28,8 +27,8 @@ class RestfulBookerService extends HTTP {
     }
 
     public async getAuthToken(): Promise<AxiosResponse<Token>> {
-        return this.post(`${API_PATH.AUTH_TOKEN}`, { "username" : AUTH_CREDENTIALS.USERNAME,
-            "password" : AUTH_CREDENTIALS.PASSWORD }, RestfulBookerService.setAxiosConfig());
+        return this.post(`${API_PATH.AUTH_TOKEN}`, { "username" : config.auth_credentials.username,
+            "password" : config.auth_credentials.password }, RestfulBookerService.setAxiosConfig());
     }
 
     public async getAllBookingsIds(): Promise<AxiosResponse<AllBookingIds & AxiosResponseError>> {

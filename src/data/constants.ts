@@ -16,11 +16,6 @@ export const ERROR_MESSAGES = {
     NOT_FOUND: `Not Found`
 };
 
-export const AUTH_CREDENTIALS = {
-    USERNAME: "admin",
-    PASSWORD: "password123"
-};
-
 export const INITIAL_BOOKING_DATA = {
     "firstname" : "John",
     "lastname" : "Connor",
