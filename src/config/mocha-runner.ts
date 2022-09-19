@@ -1,7 +1,7 @@
 import Mocha from "mocha";
 import * as path from "path";
 import * as fs from "fs";
-import { TIMEOUTS } from "./data/constants";
+import { TIMEOUTS } from "../data/constants";
 
 const TESTS_DIR = "./src/tests/";
 type GetPathsFunction = (dir: string, fileList?: string[]) => string[];

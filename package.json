@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Example of API testing framework",
   "scripts": {
-    "mocha": "node -r ts-node/register ./src/mocha-runner.ts",
+    "mocha": "node -r ts-node/register src/config/mocha-runner.ts",
     "test": "npm run mocha",
     "windows-report": "start ./mochawesome-report/mochawesome.html"
   },
