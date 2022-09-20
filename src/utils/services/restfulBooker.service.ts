@@ -12,7 +12,7 @@ class RestfulBookerService extends HTTP {
         });
     }
 
-    private static setAxiosConfig(token?: unknown, params = {}) {
+    private static setAxiosConfig(token?: string, params = {}) {
         const basicConfig = {
             headers: {
                 "Cookie": token ? `token=${token}` : null,
