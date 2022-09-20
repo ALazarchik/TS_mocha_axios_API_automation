@@ -2,7 +2,7 @@ import { HTTP } from "../http/http";
 import { config } from "../../config/config";
 import _ from "lodash";
 import { AxiosResponse } from "axios";
-import { AllBookingIds, AxiosResponseError, CreateBooking, OneBooking, Token } from "../http/interfaces";
+import { AllBookingIds, CreateBooking, OneBooking, Token } from "../http/interfaces";
 import { API_PATH } from "../../data/endpoints";
 
 class RestfulBookerService extends HTTP {
@@ -31,27 +31,27 @@ class RestfulBookerService extends HTTP {
             "password" : config.auth_credentials.password }, RestfulBookerService.setAxiosConfig());
     }
 
-    public async getAllBookingsIds(): Promise<AxiosResponse<AllBookingIds & AxiosResponseError>> {
+    public async getAllBookingsIds(): Promise<AxiosResponse<AllBookingIds>> {
         return this.get(`${API_PATH.ALL_BOOKINGS}`, RestfulBookerService.setAxiosConfig());
     }
 
-    public async getBookingById(bookingId: string): Promise<AxiosResponse<OneBooking & AxiosResponseError>> {
+    public async getBookingById(bookingId: string): Promise<AxiosResponse<OneBooking>> {
         return this.get(`${API_PATH.ONE_BOOKING_BY_ID(bookingId)}`, RestfulBookerService.setAxiosConfig(null, { headers: { "Accept": "application/json" } }));
     }
 
-    public async createBooking(data): Promise<AxiosResponse<CreateBooking & AxiosResponseError>> {
+    public async createBooking(data): Promise<AxiosResponse<CreateBooking>> {
         return this.post(`${API_PATH.ALL_BOOKINGS}`, data, RestfulBookerService.setAxiosConfig(null, { headers: { "Accept": "application/json" } }));
     }
 
-    public async updateBooking(bookingId: string, data = {}, token: string) {
+    public async updateBooking(bookingId: string, data = {}, token: string): Promise<AxiosResponse> {
         return this.put(`${API_PATH.ONE_BOOKING_BY_ID(bookingId)}`, data, RestfulBookerService.setAxiosConfig(token, { headers: { "Accept": "application/json" } }));
     }
 
-    public async partiallyUpdateBooking(bookingId: string, data = {}, token: string) {
+    public async partiallyUpdateBooking(bookingId: string, data = {}, token: string): Promise<AxiosResponse> {
         return this.patch(`${API_PATH.ONE_BOOKING_BY_ID(bookingId)}`, data, RestfulBookerService.setAxiosConfig(token, { headers: { "Accept": "application/json" } }));
     }
 
-    public async deleteBookingById(bookingId: string, token: string) {
+    public async deleteBookingById(bookingId: string, token: string): Promise<AxiosResponse> {
         return this.delete(`${API_PATH.ONE_BOOKING_BY_ID(bookingId)}`, RestfulBookerService.setAxiosConfig(token));
     }
 }

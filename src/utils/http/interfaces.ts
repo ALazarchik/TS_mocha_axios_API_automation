@@ -34,17 +34,3 @@ export interface CreateBooking {
         "additionalneeds": "string";
     };
 }
-
-export interface AxiosResponseError {
-    "error": {
-        "statusCode": string;
-        "displayMessage": string;
-        "internalMessage": string;
-        "timestamp": string;
-        "correlationId"?: string;
-        "details"?: {
-            "field": string;
-            "errorMessage": string;
-        }[];
-    };
-}
